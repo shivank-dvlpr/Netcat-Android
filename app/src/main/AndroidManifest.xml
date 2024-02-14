@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Allows an app to use fingerprint hardware.-->
+
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+
+    <!-- Allows an application to broadcast an Intent to set an alarm for the user.-->
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <!-- Allows an application to access extra location provider commands -->
+
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+    <!-- Allows applications to open network sockets. -->
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Allows applications to access information about networks -->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- Allows applications to access information about Wi-Fi networks. -->
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- Allows applications to change Wi-Fi connectivity state. -->
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <!-- Allows applications to connect to paired bluetooth devices. -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <!-- Allows applications to discover and pair bluetooth devices. -->
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <!-- Allows applications to perform I/O operations over NFC. -->
+
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <!-- Allows access to the list of accounts in the Accounts Service. -->
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+
+    <!-- Allows applications to enter Wi-Fi Multicast mode. -->
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+
+    <!-- Allows access to the vibrator. -->
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Allows access to the flashlight. -->
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <!-- Allows using PowerManager WakeLocks to keep processor from sleeping or screen
+
+from dimming. -->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- Allows using the device's IR transmitter, if available. -->
+
+    <uses-permission android:name="android.permission.TRANSMIT_IR"/>
+
+    <!-- Allows an application to modify global audio settings. -->
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+    <!-- Allows applications to disable the keyguard if it is not secure. -->
+
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+    <!-- Allows an application to change the Z-order of tasks. -->
+
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+
+    <!-- Allows an application to call
+
+{@link android.app.ActivityManager#killBackgroundProcesses}. -->
+
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+
+    <!-- Allows applications to set the wallpaper. -->
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+
+    <!-- Allows applications to set the wallpaper hints. -->
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+
+    <!-- Allows applications to set the system time zone. -->
+
+
+
+    <!-- Allows an application to install a shortcut in Launcher. -->
+
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+
+    <!-- Allows applications to read the sync settings. -->
+
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+
+    <!-- Allows applications to read the sync stats. -->
+
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+
+    <!-- Allows an application to find out the space used by any package. -->
+
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <!-- Allows an application to broadcast sticky intents.  These are
+
+broadcasts whose data is held by the system after being finished,
+
+so that clients can quickly retrieve that data without having
+
+to wait for the next broadcast. -->
+
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+    <!-- Allows applications to change network connectivity state. -->
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+
+    <!-- Allows an application to request installing packages. Apps
+
+targeting APIs greater than 22 must hold this permission in
+
+order to use {@link android.content.Intent#ACTION_INSTALL_PACKAGE}. -->
+
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+    <!-- Marker permission for applications that wish to access notification policy. -->
+
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NetcatAndroid"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
+
+        <receiver android:name=".Broadcast"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
